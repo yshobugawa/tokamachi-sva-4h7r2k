@@ -1,6 +1,6 @@
 /* 社会的視点アセスメント サービスワーカー：アプリ一式を端末内に保存してオフラインで動かす。
    記録そのものはここではなくブラウザの保存領域（IndexedDB）にある。 */
-const CACHE = "sva2-202611041900";
+const CACHE = "sva2-202611042059";
 const ASSETS = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./icon-512-maskable.png"];
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => Promise.all(ASSETS.map((u) => c.add(new Request(u, { cache: "reload" }))))));
